@@ -7,4 +7,4 @@ gmail: 20161182@student.hcmute.edu.vn
 --
 gmail: ducgav2002123@gmail.com
 --
-connect with us => [ELS >> Home](https://ledanhduc.github.io/tt_iot_23/index_en.html)
+connect with us => [ELS >> Home](https://ducgav123.github.io/doan2/login_en)
