@@ -79,9 +79,9 @@ onValue(tempRef, (snapshot) => {
 const preRef = ref(database, `${value}/Voltage`);
 
 onValue(preRef, (snapshot) => {
-  const pre = snapshot.val();
-  document.getElementById('pre').textContent = pre.toFixed(1) + " V";
-  document.getElementById('pre1').textContent = pre.toFixed(1) + " V";
+  const pre = snapshot.val().toFixed(1);
+  document.getElementById('pre').textContent = pre + " V";
+  document.getElementById('pre1').textContent = pre + " V";
   document.getElementById('num_pre').style.setProperty('--num_pre', pre);
 });
 
