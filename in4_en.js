@@ -56,10 +56,10 @@ const tempRef = ref(database, `${value}/Frequency`);
 // const tempRef = ref(database, '11971268/Frequency');
 
 onValue(tempRef, (snapshot) => {
-  const temp = snapshot.val();
+  const temp = snapshot.val().toFixed(1);
   // console.log(temp);
-  document.getElementById('temp').textContent = temp.toFixed(1) + ' Hz';
-  document.getElementById('temp1').textContent = temp.toFixed(1) + ' Hz';
+  document.getElementById('temp').textContent = temp + ' Hz';
+  document.getElementById('temp1').textContent = temp + ' Hz';
   document.getElementById('num_temp').style.setProperty('--num_temp', temp.toFixed(1));
   if(temp == null){
     alert("Device not found");
@@ -80,8 +80,8 @@ const preRef = ref(database, `${value}/Voltage`);
 
 onValue(preRef, (snapshot) => {
   const pre = snapshot.val();
-  document.getElementById('pre').textContent = pre + " V";
-  document.getElementById('pre1').textContent = pre + " V";
+  document.getElementById('pre').textContent = pre.toFixed(1) + " V";
+  document.getElementById('pre1').textContent = pre.toFixed(1) + " V";
   document.getElementById('num_pre').style.setProperty('--num_pre', pre);
 });
 
