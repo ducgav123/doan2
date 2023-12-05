@@ -58,9 +58,9 @@ const tempRef = ref(database, `${value}/Frequency`);
 onValue(tempRef, (snapshot) => {
   const temp = snapshot.val();
   // console.log(temp);
-  document.getElementById('temp').textContent = temp + ' Hz';
-  document.getElementById('temp1').textContent = temp + ' Hz';
-  document.getElementById('num_temp').style.setProperty('--num_temp', temp);
+  document.getElementById('temp').textContent = temp.toFixed(1) + ' Hz';
+  document.getElementById('temp1').textContent = temp.toFixed(1) + ' Hz';
+  document.getElementById('num_temp').style.setProperty('--num_temp', temp.toFixed(1));
   if(temp == null){
     alert("Device not found");
   }
