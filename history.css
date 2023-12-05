@@ -762,7 +762,7 @@ main .recent-checkin a{
         width: 83vw;
     }
 
-    main table thead tr th:last-child,
+/*     main table thead tr th:last-child,
     main table thead tr th:first-child{
         display: none;
     }
@@ -770,8 +770,11 @@ main .recent-checkin a{
     main table tbody tr td:last-child,
     main table tbody tr td:first-child{
         display: none;
-    }
+    } */
 
+    table{
+        padding-top: 80px;
+    }
 }
 
 @media screen and (max-width: 768px) {
