@@ -66,15 +66,17 @@ onValue(tempRef, (snapshot) => {
   }
 });
 
-// const tot_preRef = ref(database, `${value}/Voltage`);
-
-// onValue(tot_preRef, (snapshot) => {
-//   const tot_pre = snapshot.val();
-//   document.getElementById('tot_pre').textContent = tot_pre + " V";
-//   document.getElementById('num_pre').style.setProperty('--tot_pre', tot_pre + " V");
-//   document.getElementById('num_pre').style.setProperty('--dot_pre', `${360 / tot_pre}deg`);
-
-// });
+const stCir_Ref = ref(database, `${value}/lamp_1_state`);
+const st_cir = document.getElementById('st_cir')
+  
+onValue(stCir_Ref, (snapshot) => {
+  const stCir = snapshot.val();
+  if (stCir) {
+    st_cir.style.background = "rgba(57,198,92,255)";
+  } else {
+    st_cir.style.background = "rgb(227, 4, 90)";
+  }
+});
 
 const preRef = ref(database, `${value}/Voltage`);
 
