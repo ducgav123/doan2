@@ -2,17 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebas
 import { getDatabase, ref, onValue, onChildAdded, child } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBsUW2NzEFYcgc32BN0yWdbFKUKxSvgmdI",
-  authDomain: "sendopt-20057.firebaseapp.com",
-  databaseURL: "https://sendopt-20057-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sendopt-20057",
-  storageBucket: "sendopt-20057.appspot.com",
-  messagingSenderId: "160375474039",
-  appId: "1:160375474039:web:cff60b027beaf046194372"
-};
-
+import firebaseConfig from './firebaseConfig.js';
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
@@ -60,7 +50,7 @@ onValue(tempRef, (snapshot) => {
   // console.log(temp);
   document.getElementById('temp').textContent = temp + ' Hz';
   document.getElementById('temp1').textContent = temp + ' Hz';
-  document.getElementById('num_temp').style.setProperty('--num_temp', temp.toFixed(1));
+  document.getElementById('num_temp').style.setProperty('--num_temp', temp);
   if(temp == null){
     alert("Device not found");
   }
