@@ -92,11 +92,11 @@ const login = async (e) => {
 
 getIPAddress();
 
-checkLoggedIn().then((isLoggedIn) => {
-    if (isLoggedIn) {
-        window.location.replace("analytics_vi.html");
-    }
-});
+// checkLoggedIn().then((isLoggedIn) => {
+//     if (isLoggedIn) {
+//         window.location.replace("analytics_vi.html");
+//     }
+// });
 
 const user = JSON.parse(localStorage.getItem('user'));
 
