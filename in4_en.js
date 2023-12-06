@@ -23,28 +23,27 @@ onAuthStateChanged(auth, (user) => {
 
     onValue(ref(database, `${encodedEmail}/Id_Device`), (snapshot) => {
       Id_device = snapshot.val();
+      id_st.innerText ="ID: " + Id_device;
       handleIdDeviceUpdate(Id_device);
-    });
-
-    onValue(ref(database, `${encodedEmail}/history`), (snapshot) => {
-      const data = snapshot.val();
-      for (const key in data) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          console.log(`Key: ${key}, Value: ${data[key]}`);
-          // Hiển thị lên giao diện người dùng
-          // Ví dụ: document.getElementById('result').innerHTML += `Key: ${key}, Value: ${data[key]} <br>`;
-        }
-      }
     });
   }
 });
 
 function handleIdDeviceUpdate(value) {
-
 console.log(value);
-const tempRef = ref(database, `${value}/Frequency`);
-// const tempRef = ref(database, '11971268/Frequency');
 
+const stCir_Ref = ref(database, `${value}/lamp_1_state`);
+const st_cir = document.getElementById('st_cir')
+onValue(stCir_Ref, (snapshot) => {
+  const stCir = snapshot.val();
+  if (stCir) {
+    st_cir.style.background = "rgba(57,198,92,255)";
+  } else {
+    st_cir.style.background = "rgb(227, 4, 90)";
+  }
+});  
+  
+const tempRef = ref(database, `${value}/Frequency`);
 onValue(tempRef, (snapshot) => {
   const temp = snapshot.val().toFixed(1);
   // console.log(temp);
@@ -56,20 +55,7 @@ onValue(tempRef, (snapshot) => {
   }
 });
 
-const stCir_Ref = ref(database, `${value}/lamp_1_state`);
-const st_cir = document.getElementById('st_cir')
-  
-onValue(stCir_Ref, (snapshot) => {
-  const stCir = snapshot.val();
-  if (stCir) {
-    st_cir.style.background = "rgba(57,198,92,255)";
-  } else {
-    st_cir.style.background = "rgb(227, 4, 90)";
-  }
-});
-
 const preRef = ref(database, `${value}/Voltage`);
-
 onValue(preRef, (snapshot) => {
   const pre = snapshot.val().toFixed(1);
   document.getElementById('pre').textContent = pre + " V";
@@ -78,7 +64,6 @@ onValue(preRef, (snapshot) => {
 });
 
 const humiRef = ref(database, `${value}/Current`);
-
 onValue(humiRef, (snapshot) => {
   const humi = snapshot.val();
   document.getElementById('humi').textContent = humi + ' A';
@@ -87,7 +72,6 @@ onValue(humiRef, (snapshot) => {
 });
 
 const powerRef = ref(database, `${value}/Power`);
-
 onValue(powerRef, (snapshot) => {
   const power = snapshot.val();
   document.getElementById('power').textContent = power + ' W';
