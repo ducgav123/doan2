@@ -97,15 +97,15 @@ const login = async (e) => {
 
 getIPAddress();
 
-const redirectUser = (page) => {
-    window.location.replace(page);
-};
+// const redirectUser = (page) => {
+//     window.location.replace(page);
+// };
 
-checkLoggedIn().then((isLoggedIn) => {
-    if (isLoggedIn) {
-        redirectUser("analytics_en.html");
-    }
-});
+// checkLoggedIn().then((isLoggedIn) => {
+//     if (isLoggedIn) {
+//         redirectUser("analytics_en.html");
+//     }
+// });
 
 const user = JSON.parse(localStorage.getItem('user'));
 
